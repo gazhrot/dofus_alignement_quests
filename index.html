@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Quêtes d'Alignement</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- TOGGLE ALIGNEMENT -->
+    <div class="toggle-container">
+        <div class="alignment-toggle">
+            <input type="radio" id="align-brakmar" name="alignment" value="brakmar" checked>
+            <label for="align-brakmar">Brâkmar</label>
+            
+            <input type="radio" id="align-bonta" name="alignment" value="bonta">
+            <label for="align-bonta">Bonta</label>
+        </div>
+    </div>
+
+    <!-- BLOC FILTRE -->
+    <div class="required-filter">
+        <label for="startQt">Alignement :</label>
+        <input type="number" id="startQt" min="1" max="100" value="1">
+        
+        <label for="endQt">à</label>
+        <input type="number" id="endQt" min="1" max="100" value="10">
+        
+        <label for="charCount" style="margin-left: 15px;">👥 Persos :</label>
+        <input type="number" id="charCount" min="1" value="1">
+
+        <button class="btn btn-filter" onclick="filterResources()">Filtrer</button>
+        <button class="btn btn-reset" onclick="resetResources()">Réinitialiser</button>
+        
+        <div id="error-message">Veuillez entrer des valeurs valides (Quêtes: 1-100, Persos: 1-8).</div>
+    </div>
+
+    <!-- LISTE DES RESULTATS -->
+    <div class="require-list">
+        <section class="category-require resources">
+            <h4>🌿 Ressources</h4>
+            <div class="list-container">
+                <ul id="filteredResources"></ul>
+            </div>
+        </section>
+
+        <section class="category-require dungeons">
+            <h4>💀 Donjons</h4>
+            <div class="list-container">
+                <ul id="filteredDungeons"></ul>
+            </div>
+        </section>
+
+        <div class="side-by-side">
+            <section class="category-require combats">
+                <h4>⚔️ Combats</h4>
+                <div class="list-container">
+                    <ul id="filteredCombats"></ul>
+                </div>
+            </section>
+
+            <section class="category-require others">
+                <h4>⭐ Autre</h4>
+                <div class="list-container">
+                    <ul id="filteredOthers"></ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CREDIT FOOTER -->
+    <div class="site-footer">
+        Données et structure originale inspirées par <a href="https://www.dofuspourlesnoobs.com/" target="_blank" rel="noopener noreferrer">DofusPourLesNoobs</a>.
+    </div>
+
+</div>
+
+<div id="toast">Copié dans le presse-papier !</div>
+
+<script src="/script.js"></script>
+
+</body>
+</html>
